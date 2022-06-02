@@ -16,8 +16,8 @@ class GildedroseUpdateItem {
         this.deployForm = '[data-automation="item-form-type"]'
         this.typeField = 'span'
         this.confirmButton = '[data-automation="item-form-confirm-button"]'
-        this.qualityError = '#mat-error-4'
-        this.updateLastItem = 'mat-icon'
+        this.qualityError = '#mat-error-0'
+        this.updateLastItem = 'div'
     }
 
     public fillName(nameParam: string): void {
@@ -37,12 +37,17 @@ class GildedroseUpdateItem {
         cy.get(this.typeField).contains(typeParam).click();
     }
     
-    public pressAddButton(): void {
+    public pressUpdateButton(): void {
         cy.get(this.confirmButton).click();
     }
 
     public pressPenButton(): void {
-        cy.get(this.updateLastItem).contains(' edit ').last().click();
+        cy.get(this.updateLastItem).last()
+          .within(()=>{
+		cy.get('.mat-card mat-focus-indicator list-row').first().get('div:nth-child(5) > mat-icon:nth-child(1)').click();
+	})
+
+
     }
 }
 export { GildedroseUpdateItem }
