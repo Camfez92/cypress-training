@@ -12,7 +12,7 @@ describe("", () => {
     gildedroseUpdateItem = new GildedroseUpdateItem();
     gildedroseHome.visitGildedrose();
     gildedroseHome.goToAddItem();
-    gildedroseAddItem.fillName("Ensalada");
+    gildedroseAddItem.fillName("New Item");
     gildedroseAddItem.fillSellIn(3);
     gildedroseAddItem.fillQuality(5);
     gildedroseAddItem.selectType("NORMAL");
@@ -20,12 +20,13 @@ describe("", () => {
   });
   it("", () => {
     // Action
+    
     gildedroseUpdateItem.pressPenButton();
-    gildedroseAddItem.fillName("Ensalada con vino");
-    gildedroseAddItem.fillSellIn(10);
-    gildedroseAddItem.fillQuality(50);
-    gildedroseAddItem.selectType("AGED");
-    gildedroseAddItem.pressAddButton();
+    gildedroseUpdateItem.fillName("Updated Item");
+    gildedroseUpdateItem.fillSellIn(10);
+    gildedroseUpdateItem.fillQuality(50);
+    gildedroseUpdateItem.selectType("AGED");
+    gildedroseUpdateItem.pressUpdateButton();
 
     // Assert
   });
